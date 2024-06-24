@@ -1,4 +1,17 @@
 #!/usr/bin/make -f
 
+export LC_ALL=C.UTF-8
+
 %:
-	dh $@
+	dh $@ --with python3 --buildsystem=pybuild
+
+override_dh_auto_install:
+	dh_auto_install
+	find debian/tmp -name README.md -delete
+
+override_dh_installexamples:
+	dh_installexamples
+	chmod a-x debian/python3-jupyter-server/usr/share/doc/python3-jupyter-server/examples/setup.py
+
+override_dh_auto_test:
+	# Debian doesn't have pytest-tornadosync...

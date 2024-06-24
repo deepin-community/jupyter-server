@@ -1,0 +1,134 @@
+.TH JUPYTER-SERVER "1" "October 2020" "jupyter-server 1.0.5" "User Commands"
+.SH NAME
+jupyter-server \- start a tornado-based jupyter server
+.SH SYNOPSIS
+.B jupyter-server <subcommand> [<options>]
+
+.SH SUBCOMMANDS
+.PP
+\fBlist\fR
+.IP
+List currently running notebook servers.
+.PP
+\fBstop\fR
+.IP
+Stop currently running Jupyter server for a given port
+.PP
+\fBpassword\fR
+.IP
+Set a password for the Jupyter server.
+.PP
+\fBextension\fR
+.IP
+Work with Jupyter server extensions
+.PP
+.SH OPTIONS
+.PP
+.PP
+\fB\-\-help\-all\fR
+.IP
+list the available options for this command
+.PP
+\fB\-\-debug\fR
+.IP
+set log level to logging.DEBUG (maximize logging output)
+.PP
+\fB\-\-generate\-config\fR
+.IP
+generate default config file
+.PP
+\fB\-y\fR
+.IP
+Answer yes to any questions instead of prompting.
+.PP
+\fB\-\-allow\-root\fR
+.IP
+Allow the server to be run from root user.
+.PP
+\fB\-\-no\-browser\fR
+.IP
+Prevent the opening of the default url in the browser.
+.PP
+\fB\-\-log\-level=\fR<Enum>
+.IP
+Set the log level by value or name.
+Choices: any of [0, 10, 20, 30, 40, 50, 'DEBUG', 'INFO', 'WARN', 'ERROR', 'CRITICAL']
+Default: 30
+.PP
+\fB\-\-config=\fR<Unicode>
+.IP
+Full path of a config file.
+Default: ''
+.PP
+\fB\-\-ip=\fR<Unicode>
+.IP
+The IP address the Jupyter server will listen on.
+Default: 'localhost'
+.PP
+\fB\-\-port=\fR<Int>
+.IP
+The port the Jupyter server will listen on.
+Default: 8888
+.PP
+\fB\-\-port\-retries=\fR<Int>
+.IP
+The number of additional ports to try if the specified port is not
+available.
+Default: 50
+.PP
+\fB\-\-transport=\fR<CaselessStrEnum>
+.IP
+Choices: any of ['tcp', 'ipc'] (case\-insensitive)
+Default: 'tcp'
+.PP
+\fB\-\-keyfile=\fR<Unicode>
+.IP
+The full path to a private key file for usage with SSL/TLS.
+Default: ''
+.PP
+\fB\-\-certfile=\fR<Unicode>
+.IP
+The full path to an SSL/TLS certificate file.
+Default: ''
+.PP
+\fB\-\-client\-ca=\fR<Unicode>
+.IP
+The full path to a certificate authority certificate for SSL/TLS client
+authentication.
+Default: ''
+.PP
+\fB\-\-notebook\-dir=\fR<Unicode>
+.IP
+The directory to use for notebooks and kernels.
+Default: ''
+.PP
+\fB\-\-browser=\fR<Unicode>
+.IP
+Specify what command to use to invoke a web browser when starting the
+server. If not specified, the default browser will be determined by the
+`webbrowser` standard library module, which allows setting of the BROWSER
+environment variable to override it.
+Default: ''
+.PP
+\fB\-\-pylab=\fR<Unicode>
+.IP
+DISABLED: use %pylab or %matplotlib in the notebook to enable matplotlib.
+Default: 'disabled'
+.PP
+\fB\-\-gateway\-url=\fR<Unicode>
+.IP
+The url of the Kernel or Enterprise Gateway server where kernel
+specifications are defined and kernel management takes place. If defined,
+this Notebook server acts as a proxy for all kernel management and kernel
+specification retrieval.  (JUPYTER_GATEWAY_URL env var)
+Default: None
+.PP
+.SH EXAMPLES
+.PP
+.TP
+jupyter server # start the server
+.TP
+jupyter server \fB\-\-certfile\fR=\fI\,mycert\/\fR.pem # use SSL/TLS certificate
+.TP
+jupyter server password # enter a password to protect the server
+.PP
