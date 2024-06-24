@@ -1,0 +1,3 @@
+Test-Command: python3 -c "import jupyter_server; print(jupyter_server)"
+Depends: python3-jupyter-server
+Restrictions: superficial
